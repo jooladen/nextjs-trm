@@ -5,7 +5,16 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 First, run the development server:
 
 ```bash
-npm run dev
+"next": "16.1.4"
+"react": "19.2.3"
+"@tailwindcss/postcss": "^4",
+"prisma": "^7.2.0"
+https://www.prisma.io/docs/guides/nextjs 예제반영
+정적라우팅, 동적라우팅, Form Submit, Server action
+
+1. docker compose up -d 
+2. npm run dev
+
 # or
 yarn dev
 # or

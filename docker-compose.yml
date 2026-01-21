@@ -1,0 +1,21 @@
+services:
+  postgres-b:
+    image: postgres:16-alpine
+    container_name: nextjs-prisma-postgres-b
+    restart: unless-stopped
+    ports:
+      - "5433:5432"  # 호스트 포트는 A와 겹치지 않도록 5433으로 변경
+    environment:
+      POSTGRES_USER: prisma_user_b
+      POSTGRES_PASSWORD: prisma_password_b
+      POSTGRES_DB: prisma_crud_db_b
+    volumes:
+      - postgres_data_b:/var/lib/postgresql/data  # 독립 볼륨
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U prisma_user_b -d prisma_crud_db_b"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data_b:  # B 프로젝트용 볼륨만 정의
